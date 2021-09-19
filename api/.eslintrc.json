@@ -1,0 +1,54 @@
+{
+  "env": {
+    "commonjs": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsForRegex": ["^memo", "^keep", "^remember"]
+      }
+    ],
+    "arrow-body-style": ["error", "as-needed"],
+    "max-len": [
+      "error",
+      { "code": 85, "ignoreRegExpLiterals": true, "ignoreStrings": true }
+    ],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "double"],
+    "comma-dangle": ["error", "never"],
+    "semi": ["error", "always", { "omitLastInOneLineBlock": true }],
+    "arrow-parens": ["error", "as-needed", { "requireForBlockBody": false }],
+    "object-curly-spacing": ["error", "always"],
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "line": {
+          "markers": ["/"],
+          "exceptions": ["-", "+"]
+        },
+        "block": {
+          "markers": ["!"],
+          "exceptions": ["*"],
+          "balanced": true
+        }
+      }
+    ],
+    "no-case-declarations": 0,
+    "no-underscore-dangle": 0
+  }
+}

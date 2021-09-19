@@ -1,0 +1,30 @@
+const express = require("express");
+const isAuth = require("../../firewall/authUser");
+const auth = require("./auth");
+const user = require("./user");
+const newfeed = require("./newfeed");
+const national = require("./national");
+const city = require("./city");
+const place = require("./place");
+const banner = require("./banner");
+const comment = require("./comment");
+const like = require("./like");
+const news = require("./news");
+const follow = require("./follow");
+const noti = require("./notification");
+const siteApp = new express.Router();
+
+siteApp.use("/auth", auth);
+siteApp.use("/user", isAuth, user);
+siteApp.use("/newfeed", isAuth, newfeed);
+siteApp.use("/news", isAuth, news);
+siteApp.use("/nationals", isAuth, national);
+siteApp.use("/city", isAuth, city);
+siteApp.use("/place", isAuth, place);
+siteApp.use("/banner", isAuth, banner);
+siteApp.use("/comment", isAuth, comment);
+siteApp.use("/like", isAuth, like);
+siteApp.use("/follow", isAuth, follow);
+siteApp.use("/notification", isAuth, noti);
+
+module.exports = siteApp;
